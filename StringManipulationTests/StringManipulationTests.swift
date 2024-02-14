@@ -10,27 +10,113 @@ import XCTest
 
 final class StringManipulationTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func categorizeValue(){
+        //Given
+        let value = -15
+        let analyzer = StringAnalysis()
+        
+        //When
+        let sentiment = analyzer.categorizeValue(value: 15)
+        
+        //Then
+        XCTAssertEqual(sentiment, "Strongly Negative")
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    
+    
+    func computeTextWeight(){
+        let countArray = [2,1,3]
+        let weightArray = [5,10,2]
+        let analyzer = StringAnalysis()
+        
+        let value = analyzer.computeTextWeight(counts: countArray, weights: weightArray)
+        
+        XCTAssertEqual(value, 26)
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    
+    //    func computeTextWeight(){
+    //        let countArray = []
+    //        let weightArray = []
+    //        let analyzer = StringAnalysis()
+    //
+    //        let value = analyzer.computeTextWeight(counts: countArray, weights: weightArray)
+    //
+    //        XCTAssertEqual(value, 0)
+    //    }
+//
+//    func computeTextWeight(){
+//        let countArray = [2,1,3,4]
+//        let weightArray = [5,10,2]
+//        let analyzer = StringAnalysis()
+//        
+//        let value = analyzer.computeTextWeight(counts: countArray, weights: weightArray)
+//        
+//        XCTAssertEqual(value, error)
+//    }
+//
+    
+    func analyzeTextKeywords(){
+        let text = ["apple", "banana", "apple", "cherry"]
+        let keywords = ["apple", "orange", "grape"]
+        let analyzer = StringAnalysis()
+        
+        
+        let value = analyzer.analyzeTextKeywords(text: text, keywords: keywords)
+        
+        XCTAssertEqual(value, [2, 0, 0])
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    
+    //    func analyzeTextKeywords(){
+    //        let text = ["apple", "banana", "apple", "cherry"]
+    //        let keywords = ["coconut", "tomato"]
+    //        let analyzer = StringAnalysis()
+    //
+    //
+    //        let value = analyzer.analyzeTextKeywords(text: text, keywords: keywords)
+    //
+    //        XCTAssertEqual(value, [0,0])
+    //    }
+    
+    //    func analyzeTextKeywords(){
+    //        let text = []
+    //        let keywords = ["apple", "orange", "grape"]
+    //        let analyzer = StringAnalysis()
+    //
+    //
+    //        let value = analyzer.analyzeTextKeywords(text: text, keywords: keywords)
+    //
+    //        XCTAssertEqual(value, [0, 0, 0])
+    //    }
+    
+    //    func analyzeTextKeywords(){
+    //        let text = ["apple", "banana", "apple", "cherry"]
+    //        let keywords = []
+    //        let analyzer = StringAnalysis()
+    //
+    //
+    //        let value = analyzer.analyzeTextKeywords(text: text, keywords: keywords)
+    //
+    //        XCTAssertEqual(value, [])
+    //    }
+    
+    func countOccurances(){
+        let text = ["hello", "world", "hello", "swift"]
+        let keyword = "hello"
+        let analyzer = StringAnalysis()
+        
+        let value = analyzer.countOccurances(_text: text,_keyword: keyword)
+        
+        XCTAssertEqual(value, 2)
     }
-
+    
+    func tokenizePhrase(){
+        let text = "Hello World"
+        let analyzer = StringAnalysis()
+        
+        let value = analyzer.tokenizePhrase(text)
+        
+        XCTAssertEqual(value, ["hello”, “world"])
+        
+    }
 }

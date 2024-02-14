@@ -14,6 +14,11 @@
 		E119BD832B64347A007ECE18 /* StringManipulationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E119BD822B64347A007ECE18 /* StringManipulationTests.swift */; };
 		E119BD8D2B64347A007ECE18 /* StringManipulationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E119BD8C2B64347A007ECE18 /* StringManipulationUITests.swift */; };
 		E119BD8F2B64347A007ECE18 /* StringManipulationUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E119BD8E2B64347A007ECE18 /* StringManipulationUITestsLaunchTests.swift */; };
+		E119BD9C2B6434F2007ECE18 /* StringAnalysis.swift in Sources */ = {isa = PBXBuildFile; fileRef = E119BD9B2B6434F2007ECE18 /* StringAnalysis.swift */; };
+		E1629D342B7BCFE3001A5235 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1629D332B7BCFE3001A5235 /* HomeScreen.swift */; };
+		E1629D362B7BD631001A5235 /* LogEmotionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1629D352B7BD631001A5235 /* LogEmotionScreen.swift */; };
+		E1629D382B7BDA10001A5235 /* MoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1629D372B7BDA10001A5235 /* MoodModel.swift */; };
+		E1629D3A2B7BDA83001A5235 /* MoodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1629D392B7BDA83001A5235 /* MoodViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +49,11 @@
 		E119BD882B64347A007ECE18 /* StringManipulationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StringManipulationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E119BD8C2B64347A007ECE18 /* StringManipulationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringManipulationUITests.swift; sourceTree = "<group>"; };
 		E119BD8E2B64347A007ECE18 /* StringManipulationUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringManipulationUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E119BD9B2B6434F2007ECE18 /* StringAnalysis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringAnalysis.swift; sourceTree = "<group>"; };
+		E1629D332B7BCFE3001A5235 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		E1629D352B7BD631001A5235 /* LogEmotionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogEmotionScreen.swift; sourceTree = "<group>"; };
+		E1629D372B7BDA10001A5235 /* MoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodModel.swift; sourceTree = "<group>"; };
+		E1629D392B7BDA83001A5235 /* MoodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,8 +106,12 @@
 			children = (
 				E119BD712B643477007ECE18 /* StringManipulationApp.swift */,
 				E119BD732B643477007ECE18 /* ContentView.swift */,
+				E1629D302B7BCF84001A5235 /* Views */,
+				E1629D312B7BCF8C001A5235 /* ViewModels */,
+				E1629D322B7BCFA7001A5235 /* Models */,
 				E119BD752B64347A007ECE18 /* Assets.xcassets */,
 				E119BD772B64347A007ECE18 /* Preview Content */,
+				E119BD9B2B6434F2007ECE18 /* StringAnalysis.swift */,
 			);
 			path = StringManipulation;
 			sourceTree = "<group>";
@@ -125,6 +139,31 @@
 				E119BD8E2B64347A007ECE18 /* StringManipulationUITestsLaunchTests.swift */,
 			);
 			path = StringManipulationUITests;
+			sourceTree = "<group>";
+		};
+		E1629D302B7BCF84001A5235 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E1629D332B7BCFE3001A5235 /* HomeScreen.swift */,
+				E1629D352B7BD631001A5235 /* LogEmotionScreen.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E1629D312B7BCF8C001A5235 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				E1629D392B7BDA83001A5235 /* MoodViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		E1629D322B7BCFA7001A5235 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E1629D372B7BDA10001A5235 /* MoodModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +296,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1629D382B7BDA10001A5235 /* MoodModel.swift in Sources */,
+				E1629D342B7BCFE3001A5235 /* HomeScreen.swift in Sources */,
 				E119BD742B643477007ECE18 /* ContentView.swift in Sources */,
+				E119BD9C2B6434F2007ECE18 /* StringAnalysis.swift in Sources */,
+				E1629D3A2B7BDA83001A5235 /* MoodViewModel.swift in Sources */,
 				E119BD722B643477007ECE18 /* StringManipulationApp.swift in Sources */,
+				E1629D362B7BD631001A5235 /* LogEmotionScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
