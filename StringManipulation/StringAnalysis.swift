@@ -95,7 +95,6 @@ struct StringAnalysis{
                 output.append(string.lowercased())
             }
             
-            print(output)
             return output
         } else { print("Must enter string!") ; return [] }
     }

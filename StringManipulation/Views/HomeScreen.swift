@@ -10,7 +10,10 @@ import SwiftUI
 struct HomeScreen: View {
     
      @State private var showScreen = false
+    @State private var isSelected1 = false
+    @State private var isSelected2 = false
     @State private var isSelected = false
+
     
     var body: some View {
         ZStack{
@@ -20,45 +23,68 @@ struct HomeScreen: View {
                 .ignoresSafeArea()
             
             VStack{
-                Text("log emotion or mood")
+                Text("Log Emotion or Mood")
+                    .bold()
+                    .font(.system(size: 33))
+                    
                 Spacer()
-                Text("")
-                    .frame(width: UIScreen.main.bounds.width-50, height: 100)
-                    .background(.black)
-                    .opacity(0.3)
-                    .cornerRadius(8)
+
+                ButtonView(title: "Emotion", description: "How you feel right now", isSelected: $isSelected1)
                     .onTapGesture {
                         withAnimation{
-                            isSelected.toggle()
+                            isSelected1.toggle()
+                            isSelected2 = false
+                            
+                            if (isSelected1 || isSelected2){
+                                isSelected = true
+                            } else {
+                                isSelected = false
+                            }
+                            
                         }
                     }
 
-                Text("")
-                    .frame(width: UIScreen.main.bounds.width-50, height: 100)
-                    .background(.black)
-                    .opacity(0.3)
-                    .cornerRadius(8)
+                ButtonView(title: "Mood", description: "How you've felt overall today", isSelected: $isSelected2)
+                    .onTapGesture {
+                        withAnimation{
+                            isSelected2.toggle()
+                            isSelected1 = false
+                            
+                            if (isSelected1 || isSelected2){
+                                isSelected = true
+                            } else {
+                                isSelected = false
+                            }
+                            
+                        }
+                    }
                 
-                if (isSelected == false){
+                if (isSelected1 == false && isSelected2 == false){
                     Spacer()
                 }
 
                 
                 Button {
-                    showScreen.toggle()
+                    if (isSelected){
+                        showScreen.toggle()
+                    }
                 } label: {
-                    Text("Next")
+                    Text("Continue")
                         .font(.headline)
-                        .frame(width: 125, height: 35)
+                        .frame(width: 200, height: 35)
+                        .background(isSelected ? .blue: .gray)
+                        .cornerRadius(5)
+                        .foregroundColor(.black)
+                        .opacity(0.8)
 
                     
                     
                 }
                 .sheet(isPresented: $showScreen){
                     LogEmotionScreen()
-                        .presentationDetents([.fraction(1.5),.large, .large])
+                        //.presentationDetents([.fraction(1),.large, .large])
                 }
-                if (isSelected == true){
+                if (isSelected1 == true || isSelected2 == true){
                     Spacer()
 
                 }
@@ -69,4 +95,6 @@ struct HomeScreen: View {
 
 #Preview {
     HomeScreen()
+        .environmentObject(MoodViewModel())
+        .environmentObject(MoodModel())
 }
